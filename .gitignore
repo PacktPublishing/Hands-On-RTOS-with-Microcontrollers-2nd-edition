@@ -1,0 +1,58 @@
+#
+# .gitignore Patterns
+# * https://linuxize.com/post/gitignore-ignoring-files-in-git/
+# * Slashes (from link above)
+#   * "If the pattern ends with a slash, it matches only directories."
+#
+
+#
+# Workspace rules
+#
+
+# Folder with IDE configuration settings, for the workspace
+/.metadata/
+
+
+#
+# Project-level rules
+#
+
+# Debug and Release directories have build artifacts
+/Chapter_*/Debug/
+/Chapter_*/Release/
+/FreeRTOS_project/Debug/
+/FreeRTOS_project/Release/
+
+# This file records the files created for code generation.  
+# * Full-paths are specified, so the file isn't portable to other systems.
+/Chapter_*/.mxproject
+/FreeRTOS_project/.mxproject
+
+# Folder with IDE configuration settings, for the project
+/Chapter_*/.settings/
+/FreeRTOS_project/.settings/
+
+# Locally stored "Eclipse launch configurations"
+/Chapter_*/*.launch
+/FreeRTOS_project/*.launch
+
+# Ozone, config file
+/Chapter_*/*.jdebug
+/FreeRTOS_project/*.jdebug
+# Ozone, project user-file
+/Chapter_*/*.jdebug.user
+/FreeRTOS_project/*.jdebug.user
+
+# An artifact in projects converted from True Studio
+/Chapter_*/.code_review_properties
+/FreeRTOS_project/.code_review_properties
+
+# 
+# FYI, do not exclude these project-level files. They are benign or needed
+#
+# .cproject
+# .gitignore
+# .project
+# *.ioc
+# STM32F767Z*.icf
+# STM32F767Z*.ld
