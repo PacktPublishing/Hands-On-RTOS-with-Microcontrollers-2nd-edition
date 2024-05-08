@@ -1,0 +1,83 @@
+
+/*********************************************************************
+*                                                                     
+*       OnProjectLoad                                                 
+*                                                                     
+* Function description                                                
+*   Project load routine. Required.                                   
+*                                                                     
+**********************************************************************
+*/                                                                    
+void OnProjectLoad (void) {
+  //
+  // Dialog-generated settings
+  //
+  Project.SetDevice ("STM32L4R5ZI");
+  Project.SetHostIF ("USB", "");
+  Project.SetTargetIF ("SWD");
+  Project.SetTIFSpeed ("4 MHz");
+  Project.SetTraceSource ("SWO");
+  Project.AddSvdFile ("$(ProjectDir)/Common/SVD/Cortex-M4.svd");
+  Project.AddSvdFile ("$(ProjectDir)/Common/SVD/STM32L4R5.svd");
+  Project.SetOSPlugin("FreeRTOSPlugin_CM7");
+  Util.Log("Use File->Open to load the Nucleo_L4R5ZI*.elf file you'd like to debug");
+}
+
+/*********************************************************************
+*                                                                     
+*       AfterTargetReset                                              
+*                                                                     
+* Function description                                                
+*   Event handler routine.                                            
+*    - Sets the PC register to program reset value.                   
+*    - Sets the SP register to program reset value on Cortex-M.       
+*                                                                     
+**********************************************************************
+*/                                                                    
+void AfterTargetReset (void) {
+  unsigned int SP;                                                
+  unsigned int PC;                                                
+  unsigned int VectorTableAddr;                                   
+                                                                  
+  VectorTableAddr = Elf.GetBaseAddr();                            
+                                                                  
+  if (VectorTableAddr == 0xFFFFFFFF) {                            
+    Util.Log("Project file error: failed to get program base"); 
+  } else {                                                        
+    SP = Target.ReadU32(VectorTableAddr);                         
+    Target.SetReg("SP", SP);                                    
+                                                                  
+    PC = Target.ReadU32(VectorTableAddr + 4);                     
+    Target.SetReg("PC", PC);                                    
+  }
+}
+   
+
+/*********************************************************************
+*                                                                     
+*      AfterTargetDownload                                            
+*                                                                     
+* Function description                                                
+*   Event handler routine.                                            
+*    - Sets the PC register to program reset value.                   
+*    - Sets the SP register to program reset value on Cortex-M.       
+*                                                                     
+**********************************************************************
+*/                                                                    
+void AfterTargetDownload (void) {
+  unsigned int SP;                                                
+  unsigned int PC;                                                
+  unsigned int VectorTableAddr;                                   
+                                                                  
+  VectorTableAddr = Elf.GetBaseAddr();                            
+                                                                  
+  if (VectorTableAddr == 0xFFFFFFFF) {                            
+    Util.Log("Project file error: failed to get program base"); 
+  } else {                                                        
+    SP = Target.ReadU32(VectorTableAddr);                         
+    Target.SetReg("SP", SP);                                    
+                                                                  
+    PC = Target.ReadU32(VectorTableAddr + 4);                     
+    Target.SetReg("PC", PC);                                    
+  }
+}

@@ -29,4 +29,26 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+    <name>BSP</name>
+    <type>2</type>
+    <locationURI>PARENT-1-PROJECT_LOC/BSP</locationURI>
+</link>
+		<link>
+			<name>Common</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Common</locationURI>
+		</link>
+		<link>
+			<name>Drivers</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers</locationURI>
+		</link>
+		<link>
+			<name>Middleware</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middleware</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -1,7 +1,0 @@
-#
-# Project-specific rules
-#
-
-# Build directories
-/TaskCreationBuild/
-/FailedStartupBuild/
