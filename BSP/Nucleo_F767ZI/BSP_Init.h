@@ -26,6 +26,8 @@
 #ifndef BSP_NUCLEO_F767ZI_INIT_H_
 #define BSP_NUCLEO_F767ZI_INIT_H_
 #include <stdint.h>
+#include "stm32f7xx_hal.h"
+
 #ifdef __cplusplus
  extern "C" {
 #endif
