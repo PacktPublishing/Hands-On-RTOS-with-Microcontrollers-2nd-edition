@@ -20,6 +20,17 @@ void OnProjectLoad (void) {
   Project.AddSvdFile ("$(ProjectDir)/Common/SVD/Cortex-M7.svd");
   Project.AddSvdFile ("$(ProjectDir)/Common/SVD/STM32F767.svd");
   Project.SetOSPlugin("FreeRTOSPlugin_CM7");
+
+  // To automatically load a specific *.elf file uncomment the following line
+  // and replace <configuration_name.elf> with the desired filename
+  // the filename can be an absolute path, or relative to the location of this file
+  // For example, to automatically open the F767ZI configuration for chapter 3 using a relative path
+  // we'd replace <configuration_name.elf> with 
+  //              $(ProjectDir)/Chapter_03/Nucleo_F767ZI/Chapter_03_Nucleo_F767ZI.elf
+  // 
+  // File.Open("$(ProjectDir)/Chapter_03/Nucleo_F767ZI/Chapter_03_Nucleo_F767ZI.elf");
+
+  // File.Open ("<configuration_name.elf>");
   Util.Log("Use File->Open to load the Nucleo_F767ZI_*.elf file you'd like to debug");
 }
 

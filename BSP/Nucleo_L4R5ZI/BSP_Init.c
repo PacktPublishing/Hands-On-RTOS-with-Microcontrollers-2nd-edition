@@ -17,7 +17,6 @@
 static void Error_Handler(void);
 static void SystemClock_Config(void);
 static void gpioPinsInit(void);
-static void rngInit(void);
 
 USBD_HandleTypeDef USBD_Device;
 

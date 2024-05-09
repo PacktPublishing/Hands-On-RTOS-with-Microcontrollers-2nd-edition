@@ -1,5 +1,5 @@
 # Hands-On-RTOS-with-Microcontrollers, 2nd Edition
- Hands-On RTOS with Microcontrollers, 2nd Edition, from Packt Publishing
+Hands-On RTOS with Microcontrollers, 2nd Edition, from Packt Publishing
  
 The second edition is in development, and it has not yet been published.
 
@@ -19,4 +19,12 @@ Source is based on the following:
 - FreeRTOS 11.1.0
 - SystemView Target Sources 3.54
 
-At the time of publication, there will be support for two different development boards (Nucleo F767ZI and Nucleo L4RZI-P)
+# Supported Development Boards
+At the time of publication, there will be support for two different development boards (Nucleo F767ZI and Nucleo L4R5ZI-P).
+
+Because only ST-LINK V2 on-board debug probes can be reflashed to behave like a SEGGER J-Link, any newer dev boards added with an ST-LINK V3 will require an external J-Link debug probe.
+
+| Dev Board         | ST_LINK Version | External J-Link required |
+|-------------------|-----------------|--------------------------|
+| Nucleo F767ZI     | V2              | NO                       |
+| Nucleo L4R5ZI-P   | V2              | NO                       |

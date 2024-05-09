@@ -20,6 +20,18 @@ void OnProjectLoad (void) {
   Project.AddSvdFile ("$(ProjectDir)/Common/SVD/Cortex-M4.svd");
   Project.AddSvdFile ("$(ProjectDir)/Common/SVD/STM32L4R5.svd");
   Project.SetOSPlugin("FreeRTOSPlugin_CM7");
+
+  // To automatically load a specific *.elf file uncomment the following line
+  // and replace <configuration_name.elf> with the desired filename
+  // the filename can be an absolute path, or relative to the location of this file
+  // For example, to automatically open the L4R5ZI configuration for chapter 3 using a relative path
+  // we'd replace <configuration_name.elf> with 
+  //              $(ProjectDir)/Chapter_03/Nucleo_L4R5ZI/Chapter_03_Nucleo_L4R5ZI.elf
+  // 
+  // File.Open("$(ProjectDir)/Chapter_03/Nucleo_L4R5ZI/Chapter_03_Nucleo_L4R5ZI.elf");
+  
+  // File.Open ("<configuration_name.elf>");
+
   Util.Log("Use File->Open to load the Nucleo_L4R5ZI*.elf file you'd like to debug");
 }
 
