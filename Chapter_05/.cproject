@@ -60,7 +60,7 @@
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.optimization.level.138658289" name="Optimization level" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.optimization.level" useByScannerDiscovery="false"/>
 							</tool>
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.1199576097" name="MCU GCC Linker" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker">
-								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script.1427207371" name="Linker Script (-T)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script" useByScannerDiscovery="false" value="${workspace_loc:/${ProjName}/STM32F767ZITX_FLASH.ld}" valueType="string"/>
+								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script.1427207371" name="Linker Script (-T)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script" useByScannerDiscovery="false" value="${workspace_loc}/BSP/Nucleo_F767ZI/STM32F767ZITX_FLASH.ld" valueType="string"/>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.input.1309543475" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -78,7 +78,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Middleware/SEGGER/SEGGER_SYSVIEW_Config_NoOS.c|Src/stm32l4xx_it.c|Middleware/ST/STM32_USB_Device_Library_L4|BSP/Nucleo_F767ZI/usbd_desc.c|BSP/Nucleo_F767ZI/usbd_conf.c|Drivers/STM32L4xx_HAL_Driver|BSP/Nucleo_L4R5ZI|BSP/Nucleo_F746GZ|BSP_Nucleo_F767ZI/usbd_desc.c|BSP_Nucleo_F767ZI/usbd_conf.c|BSP_Nucleo_L4R5ZI|BSP_Nucleo_F746GZ|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/UartQuickDirtyInit.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|Middleware/ST/STM32_USB_Device_Library|Drivers/HandsOnRTOS|Middleware/SEGGER/SEGGER_RTT_Syscalls_SES.c|Middleware/SEGGER/SEGGER_RTT_Syscalls_KEIL.c|Middleware/SEGGER/SEGGER_RTT_Syscalls_IAR.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Startup/startup_stm32l4r5zitx.s|Middleware/SEGGER/SEGGER_SYSVIEW_Config_NoOS.c|Src/stm32l4xx_it.c|Middleware/ST/STM32_USB_Device_Library_L4|BSP/Nucleo_F767ZI/usbd_desc.c|BSP/Nucleo_F767ZI/usbd_conf.c|Drivers/STM32L4xx_HAL_Driver|BSP/Nucleo_L4R5ZI|BSP/Nucleo_F746GZ|BSP_Nucleo_F767ZI/usbd_desc.c|BSP_Nucleo_F767ZI/usbd_conf.c|BSP_Nucleo_L4R5ZI|BSP_Nucleo_F746GZ|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/UartQuickDirtyInit.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|Middleware/ST/STM32_USB_Device_Library|Drivers/HandsOnRTOS|Middleware/SEGGER/SEGGER_RTT_Syscalls_SES.c|Middleware/SEGGER/SEGGER_RTT_Syscalls_KEIL.c|Middleware/SEGGER/SEGGER_RTT_Syscalls_IAR.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -144,7 +144,7 @@
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.optimization.level.1948372743" name="Optimization level" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.optimization.level" useByScannerDiscovery="false"/>
 							</tool>
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.327400689" name="MCU GCC Linker" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker">
-								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script.1614142252" name="Linker Script (-T)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script" useByScannerDiscovery="false" value="${workspace_loc:/${ProjName}/STM32F767ZITX_FLASH.ld}" valueType="string"/>
+								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script.1614142252" name="Linker Script (-T)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script" useByScannerDiscovery="false" value="${workspace_loc}/BSP/Nucleo_L4R5ZI/STM32L4R5ZITX_FLASH.ld" valueType="string"/>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.input.1976513852" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -162,7 +162,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Middleware/SEGGER/SEGGER_SYSVIEW_Config_NoOS.c|Src/stm32f7xx_it.c|Drivers/STM32F7xx_HAL_Driver|BSP/Nucleo_F767ZI|BSP/Nucleo_F746GZ|BSP_Nucleo_F767ZI|BSP_Nucleo_F746GZ|BSP_Nucleo_L4R5ZI/usbd_desc.c|BSP_Nucleo_L4R5ZI/usbd_conf.c|BSP_Nucleo_F746GZ/usbd_desc.c|BSP_Nucleo_F746GZ/usbd_conf.c|BSP_Nucleo_F767ZI/usbd_desc.c|BSP_Nucleo_F767ZI/usbd_conf.c|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/UartQuickDirtyInit.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|Middleware/ST/STM32_USB_Device_Library|Drivers/HandsOnRTOS|Middleware/SEGGER/SEGGER_RTT_Syscalls_SES.c|Middleware/SEGGER/SEGGER_RTT_Syscalls_KEIL.c|Middleware/SEGGER/SEGGER_RTT_Syscalls_IAR.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Startup/startup_stm32f767zitx.s|Middleware/SEGGER/SEGGER_SYSVIEW_Config_NoOS.c|Src/stm32f7xx_it.c|Drivers/STM32F7xx_HAL_Driver|BSP/Nucleo_F767ZI|BSP/Nucleo_F746GZ|BSP_Nucleo_F767ZI|BSP_Nucleo_F746GZ|BSP_Nucleo_L4R5ZI/usbd_desc.c|BSP_Nucleo_L4R5ZI/usbd_conf.c|BSP_Nucleo_F746GZ/usbd_desc.c|BSP_Nucleo_F746GZ/usbd_conf.c|BSP_Nucleo_F767ZI/usbd_desc.c|BSP_Nucleo_F767ZI/usbd_conf.c|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/UartQuickDirtyInit.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|Middleware/ST/STM32_USB_Device_Library|Drivers/HandsOnRTOS|Middleware/SEGGER/SEGGER_RTT_Syscalls_SES.c|Middleware/SEGGER/SEGGER_RTT_Syscalls_KEIL.c|Middleware/SEGGER/SEGGER_RTT_Syscalls_IAR.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

@@ -1,4 +1,4 @@
-/* USER CODE BEGIN Header */
+ /* USER CODE BEGIN Header */
 
 /**
  * TITLE:  Chapter 3 - Blinks an LED on the dev-board

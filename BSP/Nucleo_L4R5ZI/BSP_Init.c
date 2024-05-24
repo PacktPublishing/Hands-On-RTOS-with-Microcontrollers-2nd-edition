@@ -199,7 +199,7 @@ static void Error_Handler(void)
 static void gpioPinsInit(void)
 {
 
- GPIO_InitTypeDef GPIO_InitStruct = {0};
+// GPIO_InitTypeDef GPIO_InitStruct = {0};
 
  BSP_LED_Init(LED1);
  BSP_LED_Init(LED2);
@@ -256,6 +256,7 @@ static void gpioPinsInit(void)
  */
 void assert_failed(uint8_t *file, uint32_t line)
 {
+	__disable_irq();
     BlueLed.On();
     RedLed.On();
     GreenLed.On();

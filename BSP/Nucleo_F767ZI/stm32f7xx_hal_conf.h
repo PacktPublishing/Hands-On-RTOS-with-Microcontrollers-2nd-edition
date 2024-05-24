@@ -31,7 +31,7 @@
 /* Exported constants --------------------------------------------------------*/
 
 // Enable full assert support.
-// assert_failed() will be called, which is in \BSP\Nucleo_F767ZI_Init.c
+// assert_failed() will be called, which is in \BSP\Nucleo_F767ZI_\BSP_Init.c
 #define USE_FULL_ASSERT 1
 
 /* ########################## Module Selection ############################## */
