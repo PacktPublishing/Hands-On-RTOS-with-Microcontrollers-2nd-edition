@@ -55,7 +55,8 @@ int main(void)
     if (xTaskCreate(GreenTask, "GreenTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) != pdPASS){ while(1); }
 
     // Using an assert to ensure proper task creation
-    assert_param(xTaskCreate(BlueTask, "BlueTask", STACK_SIZE *100, NULL, tskIDLE_PRIORITY + 1, &blueTaskHandle) == pdPASS);
+    BaseType_t retVal = xTaskCreate(BlueTask, "BlueTask", STACK_SIZE *100, NULL, tskIDLE_PRIORITY + 1, &blueTaskHandle);
+    assert_param(retVal == pdPASS);
 
     // xTaskCreateStatic returns the task handle.
     // The function always passes because the function's memory was statically allocated.

@@ -66,10 +66,9 @@ TaskHandle_t blueTaskHandle;
 static StackType_t RedTaskStack[STACK_SIZE];
 static StaticTask_t RedTaskTCB;
 
-uint32_t iterationsPerMilliSecond;
-
 int main(void)
 {
+    BaseType_t retVal;
     HWInit();
     SEGGER_SYSVIEW_Conf();
 
@@ -77,7 +76,8 @@ int main(void)
     if (xTaskCreate(GreenTask, "GreenTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) != pdPASS){ while(1); }
 
     // Using an assert to ensure proper task creation
-    assert_param(xTaskCreate(BlueTask, "BlueTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, &blueTaskHandle) == pdPASS);
+    retVal = xTaskCreate(BlueTask, "BlueTask", STACK_SIZE *100, NULL, tskIDLE_PRIORITY + 1, &blueTaskHandle);
+    assert_param(retVal == pdPASS);
 
     // xTaskCreateStatic returns the task handle.
     // The function always passes because the function's memory was statically allocated.
@@ -132,15 +132,12 @@ void BlueTask( void* argument )
 void RedTask( void* argument )
 {
     uint8_t firstIteration = 1;
-    uint32_t i;
 
     while(1)
     {
         SEGGER_SYSVIEW_PrintfHost("RedTask is starting a loop iteration");
         // Spin for 1 second of processor time
-        for (i=0;i<1000;i++){
-            lookBusy(iterationsPerMilliSecond);
-        }
+        lookBusy(1);
 
         SEGGER_SYSVIEW_PrintfHost("RedTask is turning-on the red LED");
         RedLed.On();
