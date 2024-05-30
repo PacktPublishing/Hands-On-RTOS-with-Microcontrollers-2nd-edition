@@ -17,6 +17,7 @@
 static void Error_Handler(void);
 static void SystemClock_Config(void);
 static void gpioPinsInit(void);
+static void rngInit(void);
 
 USBD_HandleTypeDef USBD_Device;
 
@@ -34,7 +35,18 @@ void HWInit( void )
 	HAL_Init();
 	SystemClock_Config();
 	gpioPinsInit();			//initialize GPIO lines for LED's
-//	rngInit();
+	rngInit();
+}
+
+/**
+ * NOTE:this function doesn't guarantee a new number every call
+ * @param Min smallest number to generate
+ * @param Max largest number to generate
+ * @returns a pseudo random number from the dedicated RNG peripheral
+ */
+uint32_t StmRand( uint32_t Min, uint32_t Max )
+{
+    return ( (RNG->DR % ((Max-Min)+1)) + Min );
 }
 
 /**
@@ -245,6 +257,18 @@ static void gpioPinsInit(void)
 //  GPIO_InitStruct.Pull = GPIO_NOPULL;
 //  HAL_GPIO_Init(USB_OverCurrent_GPIO_Port, &GPIO_InitStruct);
 
+}
+
+/**
+ * Init the random number generator (RNG) peripheral
+ */
+static void rngInit( void )
+{
+	//start the peripheral clock
+	__HAL_RCC_RNG_CLK_ENABLE();
+
+	//enable the random number generator
+	RNG->CR |= RNG_CR_RNGEN;
 }
 
 #ifdef  USE_FULL_ASSERT
