@@ -47,16 +47,25 @@ static StaticTask_t RedTaskTCB;
 
 int main(void)
 {
+    BaseType_t retVal;
     HWInit();
     SEGGER_SYSVIEW_Conf();
+    NVIC_SetPriorityGrouping( 0 ); // ensure proper priority grouping for freeRTOS
 
+    //wait for SystemView to start before we begin attempting to create tasks and allocate memory
+    BlueLed.On();
+    // Spin until the user starts the SystemView app, in Record mode
+    while(SEGGER_SYSVIEW_IsStarted()==0){
+        lookBusy(100);
+    }
+    BlueLed.Off();
 
     // If the task isn't created successfully, main() will spin in the infinite while-loop.
     if (xTaskCreate(GreenTask, "GreenTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) != pdPASS){ while(1); }
 
     // Using an assert to ensure proper task creation
-    BaseType_t retVal = xTaskCreate(BlueTask, "BlueTask", STACK_SIZE *100, NULL, tskIDLE_PRIORITY + 1, &blueTaskHandle);
-    assert_param(retVal == pdPASS);
+    retVal = xTaskCreate(BlueTask, "BlueTask", STACK_SIZE *100, NULL, tskIDLE_PRIORITY + 1, &blueTaskHandle);
+    assert_param(retVal == pdPASS); //This assert_param fails because there is insufficient heap to allocate a 50KB stack (see configTOTAL_HEAP_SIZE in inc/FreeRTOSConfig.h)
 
     // xTaskCreateStatic returns the task handle.
     // The function always passes because the function's memory was statically allocated.
@@ -74,14 +83,6 @@ int main(void)
 
 void GreenTask(void *argument)
 {
-    // Indicate GreenTask started
-    BlueLed.On();
-    // Spin until the user starts the SystemView app, in Record mode
-    while(SEGGER_SYSVIEW_IsStarted()==0){
-        lookBusy(100);
-    }
-    BlueLed.Off();
-
     SEGGER_SYSVIEW_PrintfHost("GreenTask started");
 
     GreenLed.On();

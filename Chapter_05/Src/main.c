@@ -45,7 +45,7 @@ int main(void)
     const static uint32_t stackSize = 128;
     HWInit();
     SEGGER_SYSVIEW_Conf();
-    HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4); // ensure proper priority grouping for freeRTOS
+    NVIC_SetPriorityGrouping( 0 ); // ensure proper priority grouping for freeRTOS
 
     if (xTaskCreate(Task1, "task1", stackSize, NULL, tskIDLE_PRIORITY + 3, NULL) == pdPASS)
     {
