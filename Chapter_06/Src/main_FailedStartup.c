@@ -78,7 +78,7 @@ void GreenTask(void *argument)
     BlueLed.On();
     // Spin until the user starts the SystemView app, in Record mode
     while(SEGGER_SYSVIEW_IsStarted()==0){
-        lookBusy(0.1);
+        lookBusy(100);
     }
     BlueLed.Off();
 
@@ -116,7 +116,7 @@ void RedTask( void* argument )
     {
         SEGGER_SYSVIEW_PrintfHost("RedTask is starting a loop iteration");
         // Spin for 1 second of processor time
-        lookBusy(1);
+        lookBusy(1000);
 
         SEGGER_SYSVIEW_PrintfHost("RedTask is turning-on the red LED");
         RedLed.On();
