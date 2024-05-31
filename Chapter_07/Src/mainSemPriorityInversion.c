@@ -144,7 +144,7 @@ void TaskB( void* argument )
     {
         counter++;
         SEGGER_SYSVIEW_PrintfHost("starting iteration %u ", counter);
-        vTaskDelay(StmRand(10,25));
+        vTaskDelay(pdMS_TO_TICKS(StmRand(10,25)));
 
         // Each for-loop iteration takes 1 ms of processing time.
         // The for-loop, as a whole, will use 30-75 ms of processing time.
