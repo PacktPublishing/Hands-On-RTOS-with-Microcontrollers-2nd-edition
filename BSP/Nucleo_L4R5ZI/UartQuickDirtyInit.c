@@ -92,6 +92,8 @@ void STM_UartInit( USART_TypeDef* STM_UART_PERIPH, uint32_t Baudrate, DMA_Handle
 	uartInitStruct.Init.HwFlowCtl = UART_HWCONTROL_NONE;
 	uartInitStruct.Init.OverSampling = UART_OVERSAMPLING_8;
 	uartInitStruct.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+	uartInitStruct.Init.ClockPrescaler = UART_PRESCALER_DIV64;
+
 	// UART Rx DMA Handle parameters
 	uartInitStruct.hdmatx = DmaTx;
 	uartInitStruct.hdmarx = DmaRx;
