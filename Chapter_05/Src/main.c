@@ -40,6 +40,7 @@ void Task3(void *argument);
 
 int main(void)
 {
+    BaseType_t retVal;
     // Recommended minimum stack size per task
     //   128 * 4 = 512 bytes
     const static uint32_t stackSize = 128;
@@ -47,17 +48,17 @@ int main(void)
     SEGGER_SYSVIEW_Conf();
     NVIC_SetPriorityGrouping( 0 ); // ensure proper priority grouping for freeRTOS
 
-    if (xTaskCreate(Task1, "task1", stackSize, NULL, tskIDLE_PRIORITY + 3, NULL) == pdPASS)
-    {
-        if (xTaskCreate(Task2, "task2", stackSize, NULL, tskIDLE_PRIORITY + 2, NULL) == pdPASS)
-        {
-            if (xTaskCreate(Task3, "task3", stackSize, NULL, tskIDLE_PRIORITY + 1, NULL) == pdPASS)
-            {
-                // Start the scheduler - shouldn't return unless there's a problem
-                vTaskStartScheduler();
-            }
-        }
-    }
+    retVal = xTaskCreate(Task1, "task1", stackSize, NULL, tskIDLE_PRIORITY + 3, NULL);
+    assert_param(retVal == pdPASS);
+
+    retVal = xTaskCreate(Task2, "task2", stackSize, NULL, tskIDLE_PRIORITY + 2, NULL);
+    assert_param(retVal == pdPASS);
+    
+    retVal = xTaskCreate(Task3, "task3", stackSize, NULL, tskIDLE_PRIORITY + 1, NULL);
+    assert_param(retVal == pdPASS);
+    
+    // Start the scheduler - shouldn't return unless there's a problem
+    vTaskStartScheduler();
 
     // If you've wound up here, there is likely an issue with over-running the FreeRTOS heap
     while (1)
