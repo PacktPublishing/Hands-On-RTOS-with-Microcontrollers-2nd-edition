@@ -76,13 +76,19 @@ int main(void)
     // Indicate waiting for SystemView to connect
     BlueLed.On();
     // Spin until the user starts the SystemView app, in Record mode
-    while(SEGGER_SYSVIEW_IsStarted()==0){
+    while(SEGGER_SYSVIEW_IsStarted()==0)
+    {
         lookBusy(100);
     }
     BlueLed.Off();
 
     // If the task isn't created successfully, main() will spin in the infinite while-loop.
-    if (xTaskCreate(GreenTask, "GreenTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) != pdPASS){ while(1); }
+    if (xTaskCreate(GreenTask, "GreenTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) != pdPASS)
+    {
+        while(1)
+        {
+        }
+    }
 
     // Using an assert to ensure proper task creation
     retVal = xTaskCreate(BlueTask, "BlueTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, &blueTaskHandle);
@@ -98,7 +104,6 @@ int main(void)
     // If you've wound up here, there is likely an issue with over-running the FreeRTOS heap
     while(1)
     {
-
     }
 }
 
